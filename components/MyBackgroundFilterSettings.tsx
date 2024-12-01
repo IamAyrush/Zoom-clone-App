@@ -1,5 +1,6 @@
 import { useBackgroundFilters } from '@stream-io/video-react-sdk';
 import Image from 'next/image';
+import Loader from './Loader';
 
 export const MyBackgroundFilterSettings = () => {
   const {
@@ -16,11 +17,11 @@ export const MyBackgroundFilterSettings = () => {
   }
 
   if (!isReady) {
-    return <div className="my-loading-indicator" />;
+    return <Loader/>;
   }
 
   return (
-    <div className="flex flex-col gap-4 justify-center bg-dark-1 rounded-[10px] fixed p-10 top-20 h-[400px] overflow-y-scroll scrollbar scrollbar-track-transparent">
+    <div className="flex flex-col gap-4 justify-center bg-dark-1 rounded-[10px] fixed p-10 top-40 h-[400px] overflow-y-scroll scrollbar scrollbar-track-transparent">
      <div className='pt-[350px] flex flex-row gap-4 font-bold'>
      <button onClick={disableBackgroundFilter}>Disable</button>
       <button onClick={() => applyBackgroundBlurFilter('high')}>Blur-3</button>
@@ -29,7 +30,7 @@ export const MyBackgroundFilterSettings = () => {
      </div>
      <hr />
       <ul className='relative flex flex-col  justify-center gap-4 font-bold'>
-        {backgroundImages.map((image) => (
+        {backgroundImages?.map((image) => (
           <li key={image} className='flex flex-col justify-center gap-4'>
             <Image src={image} alt='background' height={250}  width={300} className='rounded-2xl'/>
             <button onClick={() => applyBackgroundImageFilter(image)}>

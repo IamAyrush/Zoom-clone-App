@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 import {
   DeviceSettings,
-  BackgroundFiltersProvider,
   VideoPreview,
   useCall,
   useCallStateHooks,
@@ -10,8 +9,6 @@ import {
 
 import Alert from './Alert';
 import { Button } from './ui/button';
-import { MyBackgroundFilterSettings } from './MyBackgroundFilterSettings';
-import Image from 'next/image';
 
 const MeetingSetup = ({
   setIsSetupComplete,
@@ -20,7 +17,6 @@ const MeetingSetup = ({
 }) => {
   // https://getstream.io/video/docs/react/guides/call-and-participant-state/#call-state
   const { useCallEndedAt, useCallStartsAt } = useCallStateHooks();
-  const [isOpen,setIsOpen] = useState(false);
   const callStartsAt = useCallStartsAt();
   const callEndedAt = useCallEndedAt();
   const callTimeNotArrived =

@@ -95,7 +95,7 @@ const MeetingRoom = () => {
           
           {isOpen?<MyBackgroundFilterSettings />:""} 
          
-          <button className='bg-dark-1 h-10 w-10 flex items-center justify-center rounded-2xl hover:bg-slate-800' onClick={()=>setIsOpen(!isOpen)}><Image src={'/icons/filter-icon.png'} alt='filter' height={22}  width={22}  /></button>
+          <button className='bg-dark-1 size-10 flex items-center justify-center rounded-2xl hover:bg-slate-800' onClick={()=>setIsOpen(!isOpen)}><Image src={'/icons/filter-icon.png'} alt='filter' height={22}  width={22}  /></button>
          
           
         </BackgroundFiltersProvider>
